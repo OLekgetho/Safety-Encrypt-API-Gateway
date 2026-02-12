@@ -18,7 +18,7 @@ public class ApiGatewayApplication {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/text/**")
-                        .uri("http://localhost:8100"))
+                        .uri("lb://CRYPTO-SERVICE"))
                 .build();
     }
 }
