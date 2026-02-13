@@ -1,0 +1,22 @@
+services:
+  eureka-server:
+    image: ofentselekgetho/safety_encrypt:eureka-server-v1
+    container_name: eureka-server
+    ports:
+      - 8761:8761
+
+  crypto-service:
+    image: ofentselekgetho/safety_encrypt:crypto_service-v6
+    container_name: crypto-service
+    ports:
+      - 8100:8100
+    depends_on:
+      - eureka-server
+
+#  api-gateway:
+#    image: ofentselekgetho/safety_encrypt:api-gateway-v4
+#    container_name: api-gateway
+#    depends_on:
+#      - eureka-server
+#    ports:
+#      - 8080:8080
